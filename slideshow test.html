@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>slideshow test</title>
+</head>
+<body>
+<button id="back-button" onclick="plusDivs(-1)">&#10094;</button>
+<button id="forward-button" onclick="plusDivs(+1)">&#10095;</button><br>
+<img src="lucas1.jpeg" class="luc">
+<img src="lucas2.jpeg" class="luc">
+<img src="lucas3.jpeg" class="luc">
+<img src="lucas4.jpeg" class="luc">
+<img src="lucas5.jpeg" class="luc">
+
+	<script type="text/javascript">
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+			showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+			var i;
+			var x = document.getElementsByClassName("luc");
+			if (n > x.length) {slideIndex = 1} //if bigger than the final image, go back to the first picture
+			if (n < 1) {slideIndex = x.length} //if going before the first image, go to the last image
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
+			} //any other images, move up accordingly
+			x[slideIndex - 1].style.display = "block";
+		}
+	</script>
+</body>
+</html>
